@@ -1,9 +1,10 @@
 .App {
+  background-image: url("./imagenes/lunas_fondo_cuadernosco.jpg");
+  background-repeat: repeat;
   text-align: center;
 }
 
 .App-header {
-  background-color: #282c34;
   min-height: 100vh;
   display: flex;
   flex-direction: column;
