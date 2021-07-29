@@ -6,14 +6,14 @@ import Offcanvas from 'react-bootstrap/Offcanvas';
 
 
 function CartWidget() {
-    const [show, setShow] = useState(false);
+  const [show, setShow] = useState(false);
   
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+  const handleClose = () => setShow(false);
+  const handleShow = () => setShow(true);
 
 
 
-    return(
+  return(
         <>
         <Button variant="outline-warning" onClick={handleShow}>
             <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-cart-fill" viewBox="0 0 16 16">
@@ -22,16 +22,15 @@ function CartWidget() {
         </Button>
         <Offcanvas show={show} onHide={handleClose}>
         <Offcanvas.Header closeButton>
-          <Offcanvas.Title>Offcanvas</Offcanvas.Title>
+          <Offcanvas.Title>Carrito de Compras</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
           vamos a ver si sale como queremos porque siempre esta bueno que hagamos lo que podemos
         </Offcanvas.Body>
       </Offcanvas>
         </>
-    )
-    render(<CartWidget />)
+  )
 }
-
+render(<CartWidget />)
 export default CartWidget
 
