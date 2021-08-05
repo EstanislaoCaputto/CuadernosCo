@@ -1,13 +1,13 @@
 import Contador from "../contador/Contador.js"
 import "./itemColor.css"
 
-export default function ItemListContainer(props){
+export default function ItemListContainer({greeting}){
     return(
         <>
 
-            <h1 className="ItemColor">{props.greeting}</h1>
+            <h1 className="ItemColor">{greeting}</h1>
 
-            <Contador />
+            <Contador inicial= {1} stock={10}/>
         </>
     )
 }

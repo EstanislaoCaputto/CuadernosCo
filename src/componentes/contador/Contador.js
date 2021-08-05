@@ -1,10 +1,13 @@
 import React, {useEffect, useState} from "react"
 
-export default function Contador (props){
-    const [Contar, setContar] = useState(0);
-    const [Stock, setStock] = useState(10);
+export default function Contador ({inicial, stock}){
+    const [Contar, setContar] = useState(inicial);
+    const [Stock, setStock] = useState(stock);
+    
 
+    
     useEffect(()=>{
+        
         if(Stock>=1){
             console.log("Hay stock disponible todavia");
         }else{
@@ -14,7 +17,7 @@ export default function Contador (props){
     
     const Sumar = ()=>{
         if(Stock>=1){
-            setContar(Contar +1)
+            setContar(Contar + 1)
             setStock(Stock - 1)
         }  
     }
@@ -27,12 +30,19 @@ export default function Contador (props){
 
         }
     }
+
+    
     
     return(
         <div className="container">
-            <button className="btn btn-danger m-2" onClick={Sumar}>SUMAR</button>
-            <button className="btn btn-danger m-2" onClick={Restar}>RESTAR</button>
+            
             <span>Cantidad de objetos: {Stock}, Cantidad a comprar: {Contar}</span>
+            <div className="row-3">
+            <button className="btn btn-success m-2" onClick={Sumar}>SUMAR</button>
+            <button className="btn btn-danger m-2" onClick={Restar}>RESTAR</button>
+            <button className="btn btn-warning">OnAdd</button>
+            </div>
+
         </div>
     )
 }
