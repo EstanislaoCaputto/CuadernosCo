@@ -1,5 +1,5 @@
 import './App.css';
-import ItemListContainer from './componentes/CarruselProductos/ItemListContainer';
+import ItemListContainer from './componentes/ListaDeProductos/ItemListContainer';
 import NavBar from './componentes/Navbar/NavBar.js';
 
 
@@ -9,7 +9,7 @@ function App() {
       <header className="App-header">
         <div className="Container">
           <NavBar/>
-          <ItemListContainer greeting="Tienda de Cuadernos Artesanales" />
+          <ItemListContainer />
           
         </div>
       </header>

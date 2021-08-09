@@ -1,22 +1,11 @@
-import React, {useEffect, useState} from "react"
+import React, {useState} from "react"
 
 export default function Contador ({inicial, stock}){
     const [Contar, setContar] = useState(inicial);
     const [Stock, setStock] = useState(stock);
-    
-
-    
-    useEffect(()=>{
-        
-        if(Stock>=1){
-            console.log("Hay stock disponible todavia");
-        }else{
-            console.log("no hay mas");
-        }
-    },[Stock]);
-    
+         
     const Sumar = ()=>{
-        if(Stock>=1){
+        if(Stock>=1 && Stock<=10){
             setContar(Contar + 1)
             setStock(Stock - 1)
         }  
