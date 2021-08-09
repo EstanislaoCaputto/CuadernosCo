@@ -49,7 +49,7 @@ export default function ItemList() {
             if (objetos.estado === "ok"){
                 resolve(objetos)
             }else if (objetos.estado === "404") {
-                reject("hubo un error, no se encontro el usuario");
+                reject("hubo un error, no se encontro el producto");
             }                
             }, 2000);            
         });
