@@ -1,84 +1,89 @@
-import { useEffect, useEstate } from 'react'
-import { Card } from 'react-bootstrap';
+import { useEffect, useState } from 'react'
+import Item from './item';
 
 export default function ItemList() {
-    const [cargar, setCargar] = useEstate(false);
-    const [cuadernos, setCuadernos] = useEstate([]);
+    const [cargar, setCargar] = useState(false);
+    const [cuadernos, setCuadernos] = useState([]);
 
     useEffect(()=>{
-        const promesa = new Promise((resolve, reject)=>{
-            const objetos =[
-                {
-                    id:1,
-                    titulo:"cuaderno a5",
-                    descripcion:"",
-                    precio:200,
-                    imagen:".../imagenes/cuaderno2",
-                    estado: "ok"
-                },
-                {
-                    id:2,
-                    titulo:"cuaderno a4",
-                    descripcion:"",
-                    precio:200,
-                    imagen:".../imagenes/cuaderno1.jpg",
-                    estado: "ok"
-                },
-                {
-                    id:3,
-                    titulo:"cuaderno a6",
-                    descripcion:"",
-                    precio:200,
-                    imagen:".../imagenes/cuaderno3",
-                    estado: "ok"
-                },
-                {
-                    id:4,
-                    titulo:"cuaderno a3",
-                    descripcion:"",
-                    precio:200,
-                    imagen:".../imagenes/cuaderno4",
-                    estado: "ok"
-                }
-                
-            ];
-
-
+        const promesa = new Promise((resolve, reject) => {
             setCargar(true);
-            setTimeout(() => {
-            if (objetos.estado === "ok"){
-                resolve(objetos)
-            }else if (objetos.estado === "404") {
-                reject("hubo un error, no se encontro el producto");
-            }                
-            }, 2000);            
+            const objetos = [
+                {
+                    id: 1,
+                    titulo: "Mandala",
+                    descripcion: "Cuaderno-Bitácora Mandala A5 dibujado y pintado a mano con pintura acrílica. Contiene carátula y 80 hojas lisas para escribir, dibujar y expresarte como más quieras!",
+                    precio: 200,
+                    imagen: "src/imagenes/Cuadernos/cuaderno1.jpg",
+                    estado: "ok",
+                    stock:10,
+                    cantidad:0
+                },
+                {
+                    id: 2,
+                    titulo: "Peces",
+                    descripcion: "Cuaderno- Bitácora Peces A5 dibujado y pintado a mano. Este cuaderno fue hecho con diseño a pedido. Contiene carátula y 80 hojas lisas para escribir, dibujar y expresarse como desee!",
+                    precio: 200,
+                    imagen: "src/imagenes/Cuadernos/cuaderno4.jpg",
+                    estado: "ok",
+                    stock:10,
+                    cantidad:0
+                },
+                {
+                    id: 3,
+                    titulo: "Ella",
+                    descripcion: "Cuaderno- Bitácora Ella A5 pintado a mano y con imagen adhesiva. Este cuaderno fue hecho con diseño a pedido. Contiene carátula, sobre y 80 hojas lisas para escribir, dibujar y expresarse como desee!",
+                    precio: 200,
+                    imagen: "src/imagenes/Cuadernos/cuaderno2.jpg",
+                    estado: "ok",
+                    stock:10,
+                    cantidad:0
+                },
+                {
+                    id: 4,
+                    titulo: "Árbol",
+                    descripcion: "Cuaderno-Bitácora Árbol A5 dibujado y pintado a mano. Este cuader fue hecho a pedido con diseño propio. Contiene carátula y 80 hojas para escribir, dibujar y expresarse como desee!",
+                    precio: 200,
+                    imagen: "src/imagenes/Cuadernos/cuaderno1.jpg",
+                    estado: "ok",
+                    stock:10,
+                    cantidad:0
+                }
+
+            ];
+            setTimeout(() => resolve(objetos), 2000);
         });
 
         promesa.then((objetoRespuesta)=>{
             setCargar(false);
             setCuadernos(objetoRespuesta);
+            
+            
+        }).catch((err)=>{
+            console.log("algo salio mal");
+            setCargar(false)
         })
         
     },[]);
 
 
-    if(cargar){
-        return(
-            <h1>Cargando, porfavor espere...</h1>
+    if (cargar === true) {
+        
+        return (
+            
+            <h1>Cargando, porfavor espere... </h1>
         )
     }
+
     return(
-        <Card style={{ width: '18rem' }}>
-            <Card.Img variant="top" src={cuadernos.imagen} />
-            <Card.Body>
-                <Card.Title>{cuadernos.titulo}</Card.Title>
-                <Card.Text>
-                    {cuadernos.descripcion}
-                </Card.Text>
-                <Card.Text>
-                    {cuadernos.precio}
-                </Card.Text>
-            </Card.Body>
-        </Card>
+        
+        <>
+            
+            {cuadernos.map((elCuaderno)=>(
+            <Item imagen={elCuaderno.imagen} titulo={elCuaderno.titulo} precio={elCuaderno.precio} descripcion={elCuaderno.descripcion} cantidad={elCuaderno.cantidad} stock={elCuaderno.stock}/>
+            
+            ))}
+            
+        </>
     )
-}
+};
