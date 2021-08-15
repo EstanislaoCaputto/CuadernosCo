@@ -5,14 +5,14 @@ export default function Contador ({inicial, stock}){
     const [Stock, setStock] = useState(stock);
          
     const Sumar = ()=>{
-        if(Stock>=1 && Stock<=10){
+        if(Stock>=1){
             setContar(Contar + 1)
             setStock(Stock - 1)
         }  
     }
 
     const Restar = ()=>{
-        if(Stock>=0 && Stock<10){
+        if(Stock>=0 && Contar!==0){
             
         setContar(Contar -1)
         setStock(Stock + 1)
