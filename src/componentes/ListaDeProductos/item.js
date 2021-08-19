@@ -1,19 +1,24 @@
 import { Card } from "react-bootstrap";
-import itemDetalle from "./itemDetalle"
 import Contador from "../contador/Contador.js"
-export default function Item({titulo, precio, imagen, cantidad, stock}) {
+import { Link } from "react-router-dom";
+
+export default function Item({titulo, precio, imagen, cantidad, stock, id}) {
+
+    
     return (
         
-            <Card border="success" style={{ width: '18rem', heigth: '18rem'  }}>
+            <Card border="success" style={{ width: '18rem', heigth: '18rem', margin: '3px'  }}>
                 <Card.Img src={imagen}/>
-                <Card.Body>
+                <Card.Body style={{ padding: '5px'}}>
                     <Card.Title style={{ fontSize: '35px'}}>{titulo}</Card.Title>
                     
                     <Card.Text>
                         ${precio}
                     </Card.Text>
                     <Contador inicial={cantidad} stock={stock} />
-                    <itemDetalle />
+                    <Link to={`/characters-detail/${id}`}>
+                        Detalle del Cuaderno
+                    </Link>
 
                 </Card.Body>
             </Card>

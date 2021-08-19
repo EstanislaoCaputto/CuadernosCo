@@ -39,11 +39,11 @@ export default function ItemList() {
         <>
             
             {cuadernos.map((elCuaderno)=>(
-                <>
-                    <Item imagen={elCuaderno.imagen} titulo={elCuaderno.titulo} precio={elCuaderno.precio} cantidad={elCuaderno.cantidad} stock={elCuaderno.stock}/>
+                
+                    <Item imagen={elCuaderno.imagen} titulo={elCuaderno.titulo} precio={elCuaderno.precio} cantidad={elCuaderno.cantidad} stock={elCuaderno.stock} id={elCuaderno.id}/>
 
             
-                </>
+                
             
             ))}
             

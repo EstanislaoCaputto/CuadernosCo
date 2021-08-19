@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import Navbar from 'react-bootstrap/Navbar'
 import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
@@ -10,17 +11,17 @@ function NavBar (){
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
             <Container>
                 
-                <Navbar.Brand href="#">Eclipsamesta</Navbar.Brand>
+                <Navbar.Brand href="/">Eclipsamesta</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">
-                    <Nav.Link href="#features">¿Quien soy?</Nav.Link>
-                    <Nav.Link href="#pricing">Contactos</Nav.Link>
+                    <Link className="nav-link" to="/quien-soy">¿Quien soy?</Link>
+                    <Link className="nav-link" to="/contactos">Contactos</Link>
                     <NavDropdown title="Productos" id="collasible-nav-dropdown">
-                        <NavDropdown.Item href="#action/3.1">Bitácoras</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.2">Cuadernos A5</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.3">Cuadernos A6</NavDropdown.Item>
-                        <NavDropdown.Item href="#action/3.4">¡Reciclados!</NavDropdown.Item>
+                        <Link className="dropdown-item" to="/">Bitácoras</Link>
+                        <Link className="dropdown-item" to="/">Cuadernos A5</Link>
+                        <Link className="dropdown-item" to="/">Cuadernos A6</Link>
+                        <Link className="dropdown-item" to="/">¡Reciclados!</Link>
                         <NavDropdown.Item href="#action/3.5">Creacion Artística</NavDropdown.Item>
                     </NavDropdown>
                     
