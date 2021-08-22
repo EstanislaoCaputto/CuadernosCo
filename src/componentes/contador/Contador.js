@@ -25,7 +25,7 @@ export default function Contador ({inicial, stock}){
     return(
         <div className="container">
             
-            <p style={{ fontSize: '15px'}}>Cantidad de objetos: {Stock}, Cantidad a comprar: {Contar}</p>
+            <spam style={{ fontSize: '15px'}}>Cantidad de objetos: {Stock}, Cantidad a comprar: {Contar}</spam>
             <div className="row-3">
             <button className="btn btn-success m-1" onClick={Sumar}>SUMAR</button>
             <button className="btn btn-danger m-1" onClick={Restar}>RESTAR</button>

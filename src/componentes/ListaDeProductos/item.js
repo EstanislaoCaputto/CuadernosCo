@@ -16,7 +16,7 @@ export default function Item({titulo, precio, imagen, cantidad, stock, id}) {
                         ${precio}
                     </Card.Text>
                     <Contador inicial={cantidad} stock={stock} />
-                    <Link to={`/characters-detail/${id}`}>
+                    <Link to={`/detalles/${id}`} className="btn btn-warning">
                         Detalle del Cuaderno
                     </Link>
 

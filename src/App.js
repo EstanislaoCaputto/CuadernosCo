@@ -1,7 +1,6 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
-import Itemdetalle from './componentes/ListaDeProductos/itemDetalle';
-// import ItemDetalleContenedor from './componentes/ListaDeProductos/itemDetalleContenedor';
+import ItemDetalleContenedor from './componentes/ListaDeProductos/itemDetailConteiner';
 import ItemListContainer from './componentes/ListaDeProductos/ItemListContainer';
 import NavBar from './componentes/Navbar/NavBar.js';
 
@@ -19,8 +18,8 @@ function App() {
             <ItemListContainer />
           </div>
           </Route>
-          <Route exact path="/cuadernos-detalles/:id">
-            <Itemdetalle />
+          <Route exact path="/detalles/:laReferencia">
+            <ItemDetalleContenedor />
           </Route>
           </Switch>
         </div>
