@@ -4,7 +4,7 @@ import Container from 'react-bootstrap/Container'
 import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import 'bootstrap/dist/css/bootstrap.min.css'
-import CartWidget from '../botonCompra/CartWidget.js'
+import CartWidget from './CartWidget'
 
 function NavBar (){
     return(
@@ -18,11 +18,10 @@ function NavBar (){
                     <Link className="nav-link" to="/quien-soy">¿Quien soy?</Link>
                     <Link className="nav-link" to="/contactos">Contactos</Link>
                     <NavDropdown title="Productos" id="collasible-nav-dropdown">
-                        <Link className="dropdown-item" to="/">Bitácoras</Link>
-                        <Link className="dropdown-item" to="/">Cuadernos A5</Link>
-                        <Link className="dropdown-item" to="/">Cuadernos A6</Link>
-                        <Link className="dropdown-item" to="/">¡Reciclados!</Link>
-                        <NavDropdown.Item href="#action/3.5">Creacion Artística</NavDropdown.Item>
+                        <Link className="dropdown-item" to="/categorias/bitacoras">Bitácoras</Link>
+                        <Link className="dropdown-item" to="/categorias/A5">Cuadernos A5</Link>
+                        <Link className="dropdown-item" to="/categorias/A6">Cuadernos A6</Link>
+                        <Link className="dropdown-item" to="/categorias/reciclados">¡Reciclados!</Link>
                     </NavDropdown>
                     
                 </Nav>

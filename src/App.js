@@ -1,15 +1,15 @@
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
-import ItemDetalleContenedor from './componentes/ListaDeProductos/itemDetailConteiner';
-import ItemListContainer from './componentes/ListaDeProductos/ItemListContainer';
-import NavBar from './componentes/Navbar/NavBar.js';
+import ItemDetalleContenedor from './componentes/itemDetailConteiner';
+import ItemListContainer from './componentes/ItemListContainer';
+import NavBar from './componentes/NavBar.js';
 
 
 function App() {
   return (
     <BrowserRouter>
-    <div className="App">
-      <header className="App-header">
+    <div className="App" >
+      <header className="App-header" style={{color: 'black'}}>
         <div className="Container">
           <NavBar/>
           <Switch>

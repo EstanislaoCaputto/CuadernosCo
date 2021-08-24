@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
-import objetos from "./objeto";
+import objetos from "../misObjetos/objeto";
 import ItemDetalle from "./itemDetalle";
 
 function ItemDetalleContenedor() {

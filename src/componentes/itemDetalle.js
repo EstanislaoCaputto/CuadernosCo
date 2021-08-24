@@ -1,5 +1,5 @@
 import { Card } from "react-bootstrap";
-import Contador from "../contador/Contador";
+import Contador from "./Contador";
 
 
 function ItemDetalle(producto) {

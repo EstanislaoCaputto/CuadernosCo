@@ -1,5 +1,5 @@
 import { Card } from "react-bootstrap";
-import Contador from "../contador/Contador.js"
+import Contador from "./Contador.js"
 import { Link } from "react-router-dom";
 
 export default function Item({titulo, precio, imagen, cantidad, stock, id}) {

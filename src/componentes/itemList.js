@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react'
 import Item from './item';
-import objetos  from './objeto';
+import objetos  from '../misObjetos/objeto';
 
 export default function ItemList() {
     const [cargar, setCargar] = useState(false);
@@ -19,7 +19,7 @@ export default function ItemList() {
             
             
         }).catch((err)=>{
-            console.log("algo salio mal");
+            console.error("algo salio mal", err);
             setCargar(false)
         })
         
