@@ -1,5 +1,4 @@
 import { Card } from "react-bootstrap";
-import Contador from "./Contador.js"
 import { Link } from "react-router-dom";
 
 export default function Item({titulo, precio, imagen, cantidad, stock, id}) {
@@ -15,7 +14,6 @@ export default function Item({titulo, precio, imagen, cantidad, stock, id}) {
                     <Card.Text>
                         ${precio}
                     </Card.Text>
-                    <Contador inicial={cantidad} stock={stock} />
                     <Link to={`/detalles/${id}`} className="btn btn-warning">
                         Detalle del Cuaderno
                     </Link>

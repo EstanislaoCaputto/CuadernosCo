@@ -16,8 +16,12 @@ function ItemDetalleContenedor() {
           2000
         );
         setCargar(false)
-      }).then((data) => setProducto(data[0]));
-      console.log(producto);
+      }).then((data) => {
+        setProducto(data[0])
+        
+      
+      });
+      
     }, []);
 
   if(cargar){
