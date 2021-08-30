@@ -1,4 +1,4 @@
-import React, {useState, useEffect} from "react"
+import React, {useState} from "react"
 
 export default function Contador ({inicial, stock}){
     const [Contar, setContar] = useState(inicial);
@@ -28,12 +28,13 @@ export default function Contador ({inicial, stock}){
     return(
         
         <div className="container">
-            {stock && stock}
-            <spam style={{ fontSize: '15px'}}>Cantidad de objetos: {Stock}, Cantidad a comprar: {Contar}</spam>
+            
+            <h3 style={{ fontSize: '15px'}}>Cantidad de objetos: {Stock}, Cantidad a comprar: {Contar}</h3>
             <div className="row-3">
             <button className="btn btn-success m-1" onClick={Sumar}>SUMAR</button>
             <button className="btn btn-danger m-1" onClick={Restar}>RESTAR</button>
-            {/* {Stock > 5 && <button className="btn"> terminar compra</button>} */}
+            {Contar > 1 && <button className="btn"> terminar compra</button>}
+            
             </div>
             
         </div>

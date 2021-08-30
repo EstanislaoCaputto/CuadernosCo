@@ -7,7 +7,8 @@ const objetos =[
         imagen: require( '../componentes/imagenProductos/cuaderno1.jpg' ).default,
         estado: "ok",
         stock:10,
-        cantidad:1
+        cantidad:1,
+        categoria:"A5"
     },
     {
         id: "2",
@@ -17,7 +18,8 @@ const objetos =[
         imagen: require( '../componentes/imagenProductos/cuaderno4.jpg' ).default,
         estado: "ok",
         stock:10,
-        cantidad:1
+        cantidad:1,
+        categoria:"A5"
     },
     {
         id: "3",
@@ -27,7 +29,8 @@ const objetos =[
         imagen: require( '../componentes/imagenProductos/cuaderno2.jpg' ).default,
         estado: "ok",
         stock:10,
-        cantidad:1
+        cantidad:1,
+        categoria:"A5"
     },
     {
         id: "4",
@@ -37,7 +40,8 @@ const objetos =[
         imagen: require( '../componentes/imagenProductos/cuaderno3.jpg' ).default,
         estado: "ok",
         stock:10,
-        cantidad:1
+        cantidad:1,
+        categoria:"A5"
     }
 ]
 
