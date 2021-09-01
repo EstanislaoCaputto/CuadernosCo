@@ -19,7 +19,7 @@ function ItemDetalleContenedor() {
         
       })
       tarea.then((data) => {
-        console.log("data", data);
+        
         setProducto(data[0])
         setCargar(false)
       })
