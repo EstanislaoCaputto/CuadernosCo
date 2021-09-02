@@ -1,7 +1,7 @@
 import React, {useState} from "react"
 import { Link } from "react-router-dom";
 
-export default function Contador ({inicial, stock}){
+export default function Contador ({inicial, stock, laCompra}){
     const [Contar, setContar] = useState(inicial);
     const [Stock, setStock] = useState(stock);
     const [Activado, setActivado] = useState(false);
@@ -26,6 +26,7 @@ export default function Contador ({inicial, stock}){
 
     const Comprar = ()=>{
         setActivado(true);
+        laCompra(Contar) 
         
 
     }
@@ -43,12 +44,12 @@ export default function Contador ({inicial, stock}){
                     <div className="row-3">
                         <button className="btn btn-success m-1" onClick={Sumar}>SUMAR</button>
                         <button className="btn btn-danger m-1" onClick={Restar}>RESTAR</button>
-                        {Contar >= 1 && <button className="btn btn-warning" onClick={Comprar}>Agregar al Carro</button>}
+                        <button className="btn btn-warning m-1" onClick={Comprar}>Agregar al Carro</button>
                     </div>
                 </>
                 :
                 <>
-                    <button as={Link} to="/cart" className="btn">Terminar compra</button>
+                    <Link to="/cart" className="btn" text="Terminar Compra">Finalizar Compra</Link>
                 </>
 
             }

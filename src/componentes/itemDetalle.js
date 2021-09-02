@@ -1,8 +1,16 @@
+import { useState } from "react";
 import { Card } from "react-bootstrap";
 import Contador from "./Contador";
 
 
 function ItemDetalle(producto) {
+    const [Compra, setCompra] = useState([])
+
+    const onAdd = (valorObtenidoXparam) =>{
+        setCompra(valorObtenidoXparam)
+
+    }
+    console.log("tu compra", Compra);
     
     
     return(
@@ -21,7 +29,7 @@ function ItemDetalle(producto) {
                                                                                 
                         </Card.Text>
                         
-                        <Contador inicial={producto.cantidad} stock={producto.stock}/>
+                        <Contador inicial={producto.cantidad} stock={producto.stock} laCompra={(valor)=> onAdd(valor)}/>
                         
                         
                     </Card.Body>
