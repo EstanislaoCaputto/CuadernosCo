@@ -10,7 +10,7 @@ function ItemDetalle(producto) {
         setCompra(valorObtenidoXparam)
 
     }
-    console.log("tu compra", Compra);
+    
     
     
     return(
