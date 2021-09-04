@@ -1,14 +1,18 @@
-import { useState } from "react";
+import { useContext, useState } from "react";
 import { Card } from "react-bootstrap";
 import Contador from "./Contador";
-
+import cartContex from "../contex/cartContex";
 
 function ItemDetalle(producto) {
-    const [Compra, setCompra] = useState([])
-
-    const onAdd = (valorObtenidoXparam) =>{
-        setCompra(valorObtenidoXparam)
-
+    
+    const [Compra, setCompra] = useState(0);
+    const {carrito, setCarrito} = useContext(cartContex)
+    
+    const agregarCantAlCarrito = (cantidad) =>{
+        setCompra(cantidad)
+        setCarrito({...producto})
+        console.log(carrito)
+               
     }
     
     
@@ -26,10 +30,10 @@ function ItemDetalle(producto) {
                         <Card.Text>
                             <p>{producto.descripcion}</p>
                             <p>$ {producto.precio}</p>
-                                                                                
+                                                                       
                         </Card.Text>
                         
-                        <Contador inicial={producto.cantidad} stock={producto.stock} laCompra={(valor)=> onAdd(valor)}/>
+                        <Contador inicial={producto.cantidad} stock={producto.stock} onAdd={agregarCantAlCarrito}/>
                         
                         
                     </Card.Body>

@@ -1,12 +1,15 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
 import { render } from "@testing-library/react"
 import { Button } from "react-bootstrap";
 import Offcanvas from 'react-bootstrap/Offcanvas';
+import Carrito from './CarroDeItems';
+import cartContex from '../contex/cartContex';
 
 
 
 function CartWidget() {
   const [show, setShow] = useState(false);
+  const {carrito} = useContext(cartContex)
   
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -25,7 +28,8 @@ function CartWidget() {
           <Offcanvas.Title>Carrito de Compras</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          vamos a ver si sale como queremos porque siempre esta bueno que hagamos lo que podemos
+          <Carrito item={carrito}/>
+         <h3>Aca tengo que ver lo que compran </h3>
         </Offcanvas.Body>
       </Offcanvas>
         </>
