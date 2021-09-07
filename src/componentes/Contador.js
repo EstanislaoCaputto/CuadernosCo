@@ -1,10 +1,10 @@
-import React, {useState} from "react"
+import { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 
-export default function Contador ({inicial, stock, onAdd}){
+export default function Contador ({inicial, stock, onAdd = () => {}}){
     const [Contar, setContar] = useState(inicial);
     const [Stock, setStock] = useState(stock);
-    const [Activado, setActivado] = useState(false);
+    
     
     
   
@@ -25,35 +25,19 @@ export default function Contador ({inicial, stock, onAdd}){
         }
     }
 
-    
-    const Comprar = () =>{
-        setActivado(true)
-        
-    }
+    useEffect(() => {
+        onAdd(Contar);
+      }, [Contar]);
     
     
     return(
         
         <div className="container">
-            
-            {!Activado ? 
-                <>
-                    <h3 style={{ fontSize: '15px' }}>Cantidad de objetos: {Stock}, Cantidad a comprar: {Contar}</h3>
-                    <div className="row-3">
-                        <button className="btn btn-success m-1" onClick={Sumar}>SUMAR</button>
-                        <button className="btn btn-danger m-1" onClick={Restar}>RESTAR</button>
-                        <button className="btn btn-warning m-1" onClick={Comprar}>Agregar al Carro</button>
-                    </div>
-                </>
-                :
-                <>
-                    <Link to="/cart" className="btn" text="Terminar Compra" onClick={onAdd}>Finalizar Compra</Link>
-                </>
-
-            }
-                        
-            
-            
+            <h3 style={{ fontSize: '15px' }}>Cantidad de objetos: {Stock}, Cantidad a comprar: {Contar}</h3>
+            <div className="row-3">
+                <button className="btn btn-success m-1" onClick={Sumar}>SUMAR</button>
+                <button className="btn btn-danger m-1" onClick={Restar}>RESTAR</button>
+            </div>
         </div>
     )
 }

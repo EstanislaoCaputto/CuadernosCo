@@ -1,22 +1,22 @@
 import { useContext, useState } from "react";
 import { Card } from "react-bootstrap";
 import Contador from "./Contador";
-import cartContex from "../contex/cartContex";
+import Cartcontext from "../contex/cartContex";
+import { Link } from "react-router-dom";
 
 function ItemDetalle(producto) {
-    
-    const [Compra, setCompra] = useState(0);
-    const {carrito, setCarrito} = useContext(cartContex)
-    
-    const agregarCantAlCarrito = (cantidad) =>{
-        setCompra(cantidad)
-        setCarrito({...producto})
-        console.log(carrito)
-               
+    const [ cantcomp, setCantComprar] = useState(0);
+    const [ avtivado, setActivado] = useState(false);
+    const {addItem} = useContext(Cartcontext);
+
+    const onAdd=(Contar)=>{
+        setCantComprar(Contar)
     }
-    
-    
-    
+    const AgregarCarrito=()=>{
+        setActivado(true);
+        addItem(producto, cantcomp)
+    }
+
     return(
         <>
             
@@ -32,9 +32,17 @@ function ItemDetalle(producto) {
                             <p>$ {producto.precio}</p>
                                                                        
                         </Card.Text>
-                        
-                        <Contador inicial={producto.cantidad} stock={producto.stock} onAdd={agregarCantAlCarrito}/>
-                        
+                                               
+                        {!avtivado ?
+                        <>
+                        <Contador inicial={producto.cantidad} stock={producto.stock} onAdd={onAdd}/>
+                        <button className="btn btn-warning" onClick={AgregarCarrito}>Agregar al carro</button>
+                        </>
+                        :
+                        <>
+                        <Link className="btn btn-success" to="/cart">Terminar Compra</Link>
+                        </>
+                        }
                         
                     </Card.Body>
                 </Card>

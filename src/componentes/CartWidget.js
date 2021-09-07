@@ -28,8 +28,8 @@ function CartWidget() {
           <Offcanvas.Title>Carrito de Compras</Offcanvas.Title>
         </Offcanvas.Header>
         <Offcanvas.Body>
-          <Carrito item={carrito}/>
-         <h3>Aca tengo que ver lo que compran </h3>
+          <Carrito/>
+          
         </Offcanvas.Body>
       </Offcanvas>
         </>

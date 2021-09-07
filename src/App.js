@@ -1,7 +1,8 @@
-import { useState } from 'react';
+import { useContext, useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
-import CartWidget from './componentes/CartWidget';
+import Carrito from './componentes/CarroDeItems';
+//import CartWidget from './componentes/CartWidget';
 import ItemDetalleContenedor from './componentes/itemDetailConteiner';
 import ItemListContainer from './componentes/ItemListContainer';
 import NavBar from './componentes/NavBar.js';
@@ -12,17 +13,17 @@ import NavBar from './componentes/NavBar.js';
 // import { useEffect, useState } from 'react';
 
 //context
-import cartContex from './contex/cartContex';
+import cartContex, { CartProvider } from './contex/cartContex';
 
 
 
 function App() {
 
-  const [carrito, setCarrito] = useState([])
+
 
 
   return (
-    <cartContex.Provider value={{carrito, setCarrito}}>
+    <CartProvider>
     <BrowserRouter>
       <div className="App" >
         <header className="App-header" style={{ color: 'black' }}>
@@ -38,7 +39,7 @@ function App() {
                 <ItemDetalleContenedor />
               </Route>
               <Route exact path="/cart">
-                <CartWidget item={carrito} />
+                <Carrito/>
               </Route>
             </Switch>
           </div>
@@ -46,7 +47,7 @@ function App() {
       </div>
 
     </BrowserRouter>
-    </cartContex.Provider >
+    </CartProvider >
     
   );
 }
