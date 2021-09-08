@@ -29,19 +29,19 @@ export default function Carrito() {
                                 <th> <h3>{item.titulo}</h3></th>
                                 <th><h3>{item.precio}</h3></th>
                                 <th><h3>{item.cantidad}</h3></th>
-                                <th><h3>$ {item.subtotal} </h3></th>
-                                <th><button onClick={()=>RemoveItem(item.titulo)} >Eliminar</button></th>
+                                <th><h3>${item.subtotal} </h3></th>
+                                <th><button className="btn btn-danger" onClick={()=>RemoveItem(item.titulo)} >Eliminar</button></th>
                               </tr>
                             )}
                         </tbody>
                     </Table>
-                    <button onClick={() => RemoveCart()}>Cancelar compra</button>
+                    <button className="btn btn-danger" onClick={() => RemoveCart()}>Cancelar compra</button>
 
                 </div>
                 :
                 <div >
-                    <h4>No tienes productos seleccionados!!</h4>
-                    <Link to="/"><button>Volver al Inicio</button></Link>
+                    <h4>Carrito Vacio</h4>
+                    <Link className="btn btn-secundary" to="/"><button>Volver al Inicio</button></Link>
                 </div>
             }
         </>

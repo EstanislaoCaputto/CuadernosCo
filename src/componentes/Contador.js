@@ -1,5 +1,4 @@
 import { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
 
 export default function Contador ({inicial, stock, onAdd = () => {}}){
     const [Contar, setContar] = useState(inicial);

@@ -1,8 +1,6 @@
-import { useContext, useState } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 import './App.css';
 import Carrito from './componentes/CarroDeItems';
-//import CartWidget from './componentes/CartWidget';
 import ItemDetalleContenedor from './componentes/itemDetailConteiner';
 import ItemListContainer from './componentes/ItemListContainer';
 import NavBar from './componentes/NavBar.js';
