@@ -23,18 +23,3 @@ const app = initializeApp(firebaseConfig);
 export const getData = () => getFirestore(app);
 
 
-// Esto va en el App.js
-/*
-const [cuadernos, setCuadernos] = useState([]);
-  useEffect(()=> {
-    const getCuadernos = async () =>{
-      const cuadCategoria = collection(getData(), 'cuadernos');
-      const cuadSnapshot = await getDocs(cuadCategoria);
-      const cuadList = cuadSnapshot.docs.map(doc=>doc.data());
-      console.log(cuadList);
-      setCuadernos(cuadList)
-    };
-    
-    getCuadernos();
-  },[]);
-*/

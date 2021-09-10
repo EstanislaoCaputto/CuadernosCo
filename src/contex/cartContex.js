@@ -7,7 +7,7 @@ export const CartProvider = ({ children }) => {
   const [unidad, setUnidad] = useState(0);
   const [preciot, setPrecioT] = useState(0)
 
-  console.log(carrito.length);
+  
 
   const addItem = (itemComprar, cantidad) => {
     const itemRep = carrito.find( item => item.titulo === itemComprar.titulo);

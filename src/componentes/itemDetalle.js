@@ -8,6 +8,7 @@ function ItemDetalle(producto) {
     const [ cantcomp, setCantComprar] = useState(0);
     const [ avtivado, setActivado] = useState(false);
     const {addItem} = useContext(Cartcontext);
+    
 
     const onAdd=(Contar)=>{
         setCantComprar(Contar)
@@ -25,7 +26,7 @@ function ItemDetalle(producto) {
                     <Card.Img variant="top" src={producto.imagen} />
                     <Card.Body>
                         <Card.Title>
-                            <h2>{producto.titulo}</h2>
+                            <h2>{producto.nombre}</h2>
                         </Card.Title>
                         <Card.Text>
                             <p>{producto.descripcion}</p>
@@ -35,7 +36,7 @@ function ItemDetalle(producto) {
                                                
                         {!avtivado ?
                         <>
-                        <Contador inicial={producto.cantidad} stock={producto.stock} onAdd={onAdd}/>
+                        <Contador inicial="1" stock={producto.stock} onAdd={onAdd}/>
                         <button className="btn btn-warning" onClick={AgregarCarrito}>Agregar al carro</button>
                         </>
                         :

@@ -1,39 +1,51 @@
 import { useEffect, useState } from 'react'
 import { Spinner } from 'react-bootstrap';
 import Item from './item';
-import objetos  from '../misObjetos/objeto';
+//firebase
+import { collection, getDocs } from 'firebase/firestore';
+import {getData} from '../firebase/index'
+// Objetos locales
+//import objetos  from '../misObjetos/objeto';
 
 export default function ItemList() {
-    const [cargar, setCargar] = useState(false);
+    const [cargar, setCargar] = useState(true);
     const [cuadernos, setCuadernos] = useState([]);
 
     useEffect(()=>{
-        const promesa = new Promise((resolve, reject) => {
-            setCargar(true);
+        const getCuadernos = async () => {
             
-            setTimeout(() => resolve(objetos), 2000);
-        });
+            //Obtener collecion
+            const cuadeColleccion = collection(getData(), 'Productos');
+            //obtener Snapchat (lista en ese momento)
+            const cuaderSnapshot = await getDocs(cuadeColleccion);
 
-        promesa.then((objetoRespuesta)=>{
-            setCargar(false);
-            setCuadernos(objetoRespuesta);
+            //Datos en forma de json
+            const cuadeList = cuaderSnapshot.docs.map( doc => ({
+                id: doc.id,
+                ...doc.data()
+            }));
+
+            //Estado de mi lista
             
-            
-        }).catch((err)=>{
-            console.error("algo salio mal", err);
+            setCuadernos(cuadeList)
             setCargar(false)
-        })
+
+        }
+
+        getCuadernos()
         
-    },[]);
+    },[])
 
 
     if (cargar === true) {
         
         return (
-            <div>
-                <Spinner animation="border" variant="info"/>
-                <h1>Cargando, porfavor espere... </h1>
-            </div>
+            <>
+                <div>
+                    <Spinner animation="border" variant="info" />
+                    <h1>Cargando, porfavor espere... </h1>
+                </div>
+            </>
         )
     }
 
@@ -43,9 +55,7 @@ export default function ItemList() {
             
             {cuadernos.map((elCuaderno)=>(
                 
-                    <Item imagen={elCuaderno.imagen} titulo={elCuaderno.titulo} 
-                    precio={elCuaderno.precio} cantidad={elCuaderno.cantidad} stock={elCuaderno.stock}
-                     id={elCuaderno.id}/>
+                    <Item {...elCuaderno}/>
 
             
                 

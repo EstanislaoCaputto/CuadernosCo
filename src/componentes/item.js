@@ -1,7 +1,7 @@
 import { Card } from "react-bootstrap";
 import { Link } from "react-router-dom";
 
-export default function Item({titulo, precio, imagen, id}) {
+export default function Item({nombre, precio, imagen, id}) {
 
     
     return (
@@ -9,7 +9,7 @@ export default function Item({titulo, precio, imagen, id}) {
             <Card border="success" style={{ width: '18rem', heigth: '18rem', margin: '3px'  }}>
                 <Card.Img src={imagen}/>
                 <Card.Body style={{ padding: '5px'}}>
-                    <Card.Title style={{ fontSize: '35px'}}>{titulo}</Card.Title>
+                    <Card.Title style={{ fontSize: '35px'}}>{nombre}</Card.Title>
                     
                     <Card.Text>
                         ${precio}

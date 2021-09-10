@@ -11,7 +11,7 @@ import NavBar from './componentes/NavBar.js';
 // import { useEffect, useState } from 'react';
 
 //context
-import cartContex, { CartProvider } from './contex/cartContex';
+import { CartProvider } from './contex/cartContex';
 
 
 
