@@ -30,7 +30,7 @@ export default function Carrito() {
                                 <th><h3>{item.precio}</h3></th>
                                 <th><h3>{item.cantidad}</h3></th>
                                 <th><h3>${item.subtotal} </h3></th>
-                                <th><button className="btn btn-danger" onClick={()=>RemoveItem(item.titulo)} >Eliminar</button></th>
+                                <th><button className="btn btn-danger" onClick={()=>RemoveItem(item.nombre)} >Eliminar</button></th>
                               </tr>
                             )}
                         </tbody>
