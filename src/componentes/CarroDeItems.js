@@ -26,7 +26,7 @@ export default function Carrito() {
                         <tbody>
                         {carrito.map((item)=>
                               <tr>
-                                <th> <h3>{item.titulo}</h3></th>
+                                <th> <h3>{item.nombre}</h3></th>
                                 <th><h3>{item.precio}</h3></th>
                                 <th><h3>{item.cantidad}</h3></th>
                                 <th><h3>${item.subtotal} </h3></th>

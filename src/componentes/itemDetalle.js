@@ -4,7 +4,7 @@ import Contador from "./Contador";
 import Cartcontext from "../contex/cartContex";
 import { Link } from "react-router-dom";
 
-function ItemDetalle(producto) {
+function ItemDetalle({producto}) {
     const [ cantcomp, setCantComprar] = useState(0);
     const [ avtivado, setActivado] = useState(false);
     const {addItem} = useContext(Cartcontext);
@@ -36,7 +36,7 @@ function ItemDetalle(producto) {
                                                
                         {!avtivado ?
                         <>
-                        <Contador inicial="1" stock={producto.stock} onAdd={onAdd}/>
+                        <Contador inicial={producto.cantidad} stock={producto.stock} onAdd={onAdd}/>
                         <button className="btn btn-warning" onClick={AgregarCarrito}>Agregar al carro</button>
                         </>
                         :

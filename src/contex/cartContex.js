@@ -10,11 +10,11 @@ export const CartProvider = ({ children }) => {
   
 
   const addItem = (itemComprar, cantidad) => {
-    const itemRep = carrito.find( item => item.titulo === itemComprar.titulo);
+    const itemRep = carrito.find( item => item.nombre === itemComprar.nombre);
     if (!itemRep){
         setCarrito([...carrito,
           {
-            titulo: itemComprar.titulo,
+            nombre: itemComprar.nombre,
             subtotal: (itemComprar.precio * cantidad),
             cantidad: cantidad,
             precio: itemComprar.precio
@@ -24,7 +24,7 @@ export const CartProvider = ({ children }) => {
         setPrecioT(preciot + (itemComprar.precio * cantidad));
     }else{
       const carritoBorrador = carrito.map((item)=>{
-        if(item.titulo === itemComprar.titulo){
+        if(item.nombre === itemComprar.nombre){
           item.cantidad = item.cantidad - ( -cantidad )
           item.precio = item.precio + (itemComprar.precio * itemComprar.cantidad)
         }
@@ -40,14 +40,14 @@ export const CartProvider = ({ children }) => {
     setPrecioT(0)
     setUnidad(0)
   };
-  const RemoveItem = (titulo) => {
+  const RemoveItem = (nombre) => {
     carrito.map( (item) => {
-      if (item.titulo === titulo){
+      if (item.nombre === nombre){
         setPrecioT(preciot - (item.subtotal))
         setUnidad(unidad - (item.cantidad))
       }
     })
-    const carritoBorrador = carrito.filter((itemnoborrar) => itemnoborrar.titulo !== titulo)
+    const carritoBorrador = carrito.filter((itemnoborrar) => itemnoborrar.nombre !== nombre)
     setCarrito(carritoBorrador);
     
   }

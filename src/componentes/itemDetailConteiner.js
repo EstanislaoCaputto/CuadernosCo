@@ -12,16 +12,17 @@ function ItemDetalleContenedor() {
 
 
   useEffect(()=>{
-    const getProducto = async(laReferencia) =>{
-      const produCollecion = query(collection(getData, 'Productos'), where('id', '==', laReferencia));
-      const produSnap = await getDoc(produCollecion);
-      produSnap.forEach((doc) => {
-        setProducto(doc.data())
-        setCargar(false)
+    const getProducto = async() =>{
+      const produReference = doc(getData(), 'Productos', laReferencia);
+      const produSnap = await getDoc(produReference);
+      
+      setProducto({
+        ...produSnap.data(),
+        id: produSnap.id 
       });
-
-    getProducto()
+      setCargar(false)
     }
+    getProducto();
   },[laReferencia]);
 
   // useEffect(() => {
@@ -57,7 +58,7 @@ function ItemDetalleContenedor() {
 
   return (
       <>
-        <ItemDetalle {...producto}/>
+        <ItemDetalle producto ={producto}/>
       </>
   )
 };
