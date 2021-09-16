@@ -55,7 +55,7 @@ export default function ItemList() {
             
             {cuadernos.map((elCuaderno)=>(
                 
-                    <Item {...elCuaderno}/>
+                    <Item key={elCuaderno.nombre} {...elCuaderno}/>
 
             
                 

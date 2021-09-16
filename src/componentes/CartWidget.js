@@ -42,6 +42,6 @@ function CartWidget() {
     </>
   )
 }
-render(<CartWidget />)
+// render(<CartWidget />)
 export default CartWidget
 

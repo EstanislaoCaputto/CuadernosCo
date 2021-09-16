@@ -1,4 +1,6 @@
+import { doc, setDoc, Timestamp } from "@firebase/firestore";
 import { createContext, useState } from "react";
+import { getData } from "../firebase";
 const Cartcontext = createContext({});
 
 export const CartProvider = ({ children }) => {
@@ -50,10 +52,20 @@ export const CartProvider = ({ children }) => {
     const carritoBorrador = carrito.filter((itemnoborrar) => itemnoborrar.nombre !== nombre)
     setCarrito(carritoBorrador);
     
+  };
+  const FinDeCompra = async ( carrito) => {
+    const orden = {
+      user: "{usuario}",
+      dataOrden: Timestamp.fromDate(new Date()),
+      item: { ...carrito }
+    }
+    await setDoc(doc(getData(), "orden", "primera"), orden);
+    alert("Compra enviada")
   }
+  
   return (
     
-    <Cartcontext.Provider value={{ carrito, addItem, unidad, preciot,RemoveCart, RemoveItem }}>
+    <Cartcontext.Provider value={{ carrito, addItem, unidad, preciot,RemoveCart, RemoveItem, FinDeCompra }}>
       {children}
     </Cartcontext.Provider>
   );
