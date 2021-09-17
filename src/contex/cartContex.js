@@ -57,10 +57,14 @@ export const CartProvider = ({ children }) => {
     setCarrito(carritoBorrador);
     
   };
-  const FinDeCompra = async ( carrito, user) => {
+  const FinDeCompra = async ( carrito, user, numero, email) => {
     const ordenCollection = collection(getData(), "orden");
     const orden = {
-      user: {user},
+      user: { 
+        nombre:{user}, 
+        phone:{numero}, 
+        mail:{email}
+      },
       dataOrden: Timestamp.fromDate(new Date()),
       item: { ...carrito }
       

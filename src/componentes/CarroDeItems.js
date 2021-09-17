@@ -7,9 +7,11 @@ import UserContex from '../contex/userContex';
 
 
 export default function Carrito() {
-    const [nombre, setNombre] = useState("")
+    const [nombre, setNombre] = useState("");
+    const [numero, setNumero] = useState("");
+    const [email, setEmail] = useState("");
     const { carrito, RemoveCart, RemoveItem, FinDeCompra } = useContext(Cartcontext);
-    const {user, AgregarUsuario} = useContext(UserContex)
+    const {user, telefono, mail, AgregarUsuario} = useContext(UserContex)
 
     
     return (
@@ -42,13 +44,15 @@ export default function Carrito() {
                     </Table>
                     <button className="btn btn-danger" onClick={() => RemoveCart()}>Cancelar compra</button>
                     {user ?
-                        <button className="btn btn-primary" onClick={() => FinDeCompra(carrito, user)}>Finalizar compra</button>
+                        <button className="btn btn-primary" onClick={() => FinDeCompra(carrito, user, telefono, mail)}>Finalizar compra</button>
                         :
                         <>
 
                             <label>Ingrese su nombre</label>
                             <input type="text" placeholder="Ingrese su nombre" onChange={(e)=>{setNombre(e.target.value)}}/>
-                            <button className="btn btn-primary" onClick={() => AgregarUsuario(nombre)}> Agregar nombre </button>
+                            <input type="text" placeholder="Ingrese su numero" onChange={(e)=>{setNumero(e.target.value)}}/>
+                            <input type="mail" placeholder="Ingrese su mail" onChange={(e)=>{setEmail(e.target.value)}}/>
+                            <button className="btn btn-primary" onClick={() => AgregarUsuario(nombre, numero, email)}> Agregar Usuario </button>
 
                         </>
                     }
