@@ -12,6 +12,7 @@ import NavBar from './componentes/NavBar.js';
 
 //context
 import { CartProvider } from './contex/cartContex';
+import { UserProvider } from './contex/userContex';
 
 
 
@@ -21,32 +22,35 @@ function App() {
 
 
   return (
-    <CartProvider>
-    <BrowserRouter>
-      <div className="App" >
-        <header className="App-header" style={{ color: 'black' }}>
-          <div className="Container">
-            <NavBar />
-            <Switch>
-              <Route exact path="/">
-                <div className="row">
-                  <ItemListContainer />
-                </div>
-              </Route>
-              <Route exact path="/detalles/:laReferencia">
-                <ItemDetalleContenedor />
-              </Route>
-              <Route exact path="/cart">
-                <Carrito/>
-              </Route>
-            </Switch>
-          </div>
-        </header>
-      </div>
+    <UserProvider>
+      <CartProvider>
+        <BrowserRouter>
+          <div className="App" >
+            <header className="App-header" style={{ color: 'black' }}>
+              <div className="Container">
+                <NavBar />
+                <Switch>
+                  <Route exact path="/">
+                    <div className="row">
+                      <ItemListContainer />
+                    </div>
+                  </Route>
+                  <Route exact path="/detalles/:laReferencia">
+                    <ItemDetalleContenedor />
+                  </Route>
+                  <Route exact path="/cart">
+                    <Carrito />
+                  </Route>
 
-    </BrowserRouter>
-    </CartProvider >
-    
+                </Switch>
+              </div>
+            </header>
+          </div>
+
+        </BrowserRouter>
+      </CartProvider >
+    </UserProvider>
+
   );
 }
 

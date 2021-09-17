@@ -29,7 +29,7 @@ function NavBar (){
                     </NavDropdown>
                     
                 </Nav>
-                <button className="btn btn-primary">Iniciar Sesion</button>
+                
                 
                 </Navbar.Collapse>
                 { carrito.length > 0 ? <CartWidget /> : <></> }  

@@ -1,9 +1,12 @@
-import { doc, setDoc, Timestamp } from "@firebase/firestore";
+import { addDoc, collection, Timestamp } from "@firebase/firestore";
+import { useContext } from "react";
 import { createContext, useState } from "react";
 import { getData } from "../firebase";
+import UserContex from './userContex'
 const Cartcontext = createContext({});
 
 export const CartProvider = ({ children }) => {
+  const {CerrarSesion} = useContext(UserContex);
 
   const [carrito, setCarrito] = useState([]);
   const [unidad, setUnidad] = useState(0);
@@ -12,14 +15,15 @@ export const CartProvider = ({ children }) => {
   
 
   const addItem = (itemComprar, cantidad) => {
-    const itemRep = carrito.find( item => item.nombre === itemComprar.nombre);
+    const itemRep = carrito.find( item => item.id === itemComprar.id);
     if (!itemRep){
         setCarrito([...carrito,
           {
             nombre: itemComprar.nombre,
             subtotal: (itemComprar.precio * cantidad),
             cantidad: cantidad,
-            precio: itemComprar.precio
+            precio: itemComprar.precio,
+            id: itemComprar.id
           }
         ]);
         setUnidad(unidad + cantidad);
@@ -42,25 +46,30 @@ export const CartProvider = ({ children }) => {
     setPrecioT(0)
     setUnidad(0)
   };
-  const RemoveItem = (nombre) => {
+  const RemoveItem = (id) => {
     carrito.map( (item) => {
-      if (item.nombre === nombre){
+      if (item.id === id){
         setPrecioT(preciot - (item.subtotal))
         setUnidad(unidad - (item.cantidad))
       }
     })
-    const carritoBorrador = carrito.filter((itemnoborrar) => itemnoborrar.nombre !== nombre)
+    const carritoBorrador = carrito.filter((itemnoborrar) => itemnoborrar.id !== id)
     setCarrito(carritoBorrador);
     
   };
-  const FinDeCompra = async ( carrito) => {
+  const FinDeCompra = async ( carrito, user) => {
+    const ordenCollection = collection(getData(), "orden");
     const orden = {
-      user: "{usuario}",
+      user: {user},
       dataOrden: Timestamp.fromDate(new Date()),
       item: { ...carrito }
+      
     }
-    await setDoc(doc(getData(), "orden", "primera"), orden);
+    await addDoc(ordenCollection, orden);
     alert("Compra enviada")
+    setCarrito([]);
+    CerrarSesion();
+    
   }
   
   return (

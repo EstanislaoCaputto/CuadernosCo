@@ -1,11 +1,19 @@
-// import { createContext, useState } from "react";
-// const usuario = createContext({});
+import { createContext, useState } from "react";
+const UserContex = createContext({});
 
-// export const UserContext = ({childre}) => {
-//     const [user, setUser] = useState([]);
+export const UserProvider = ({children}) => {
+    const [user, setUser] = useState("");
 
-//     const iniciarSesion = async () => {
-        
-//     }
-
-// }
+    const AgregarUsuario = (nombre) =>{
+        setUser(nombre)
+    }
+    const CerrarSesion = () => {
+        setUser()
+    }
+    return(
+        <UserContex.Provider value={{user, AgregarUsuario, CerrarSesion}}>
+            {children}
+        </UserContex.Provider>
+    )
+}
+export default UserContex

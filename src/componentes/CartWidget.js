@@ -1,5 +1,4 @@
 import React, { useState, useContext } from 'react';
-import { render } from "@testing-library/react"
 import { Button } from "react-bootstrap";
 import Offcanvas from 'react-bootstrap/Offcanvas';
 import Carrito from './CarroDeItems';
@@ -9,7 +8,7 @@ import cartContex from '../contex/cartContex';
 
 function CartWidget() {
   const [show, setShow] = useState(false);
-  const { unidad, carrito } = useContext(cartContex)
+  const { unidad } = useContext(cartContex)
   
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
@@ -30,7 +29,7 @@ function CartWidget() {
           <span className="visually-hidden">unread messages</span>
         </span>
       </Button>
-      <Offcanvas show={show} onHide={handleClose}>
+      <Offcanvas show={show} onHide={handleClose} placement={'end'} style={{width : "450px"}}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Carrito de Compras</Offcanvas.Title>
         </Offcanvas.Header>
@@ -42,6 +41,6 @@ function CartWidget() {
     </>
   )
 }
-// render(<CartWidget />)
+
 export default CartWidget
 
