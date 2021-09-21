@@ -4,6 +4,7 @@ import  Cartcontext  from '../contex/cartContex'
 import { Link } from 'react-router-dom';
 import Table from 'react-bootstrap/Table'
 import UserContex from '../contex/userContex';
+import { Button, Form } from 'react-bootstrap';
 
 
 export default function Carrito() {
@@ -48,12 +49,16 @@ export default function Carrito() {
                         :
                         <>
 
-                            <label>Ingrese su nombre</label>
-                            <input type="text" placeholder="Ingrese su nombre" onChange={(e)=>{setNombre(e.target.value)}}/>
-                            <input type="text" placeholder="Ingrese su numero" onChange={(e)=>{setNumero(e.target.value)}}/>
-                            <input type="mail" placeholder="Ingrese su mail" onChange={(e)=>{setEmail(e.target.value)}}/>
-                            <button className="btn btn-primary" onClick={() => AgregarUsuario(nombre, numero, email)}> Agregar Usuario </button>
-
+                            <Form>
+                                <Form.Label>Nombre</Form.Label>
+                                <Form.Control onChange={(e)=>{setNombre(e.target.value)}}></Form.Control>
+                                <Form.Label>Numero</Form.Label>
+                                <Form.Control onChange={(e)=>{setNumero(e.target.value)}}></Form.Control>
+                                <Form.Label>Mail</Form.Label>
+                                <Form.Control onChange={(e)=>{setEmail(e.target.value)}}></Form.Control>
+                                <Button className="btn btn-primary" onClick={() => AgregarUsuario(nombre, numero, email)}> Agregar Usuario</Button>
+                            
+                            </Form>
                         </>
                     }
 

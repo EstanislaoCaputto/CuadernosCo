@@ -1,6 +1,7 @@
 import { addDoc, collection, Timestamp } from "@firebase/firestore";
 import { useContext } from "react";
 import { createContext, useState } from "react";
+import swal from "sweetalert";
 import { getData } from "../firebase";
 import UserContex from './userContex'
 const Cartcontext = createContext({});
@@ -10,7 +11,7 @@ export const CartProvider = ({ children }) => {
 
   const [carrito, setCarrito] = useState([]);
   const [unidad, setUnidad] = useState(0);
-  const [preciot, setPrecioT] = useState(0)
+  const [preciot, setPrecioT] = useState(0);
 
   
 
@@ -30,15 +31,15 @@ export const CartProvider = ({ children }) => {
         setPrecioT(preciot + (itemComprar.precio * cantidad));
     }else{
       const carritoBorrador = carrito.map((item)=>{
-        if(item.nombre === itemComprar.nombre){
+        if(item.id === itemComprar.id){
           item.cantidad = item.cantidad - ( -cantidad )
           item.precio = item.precio + (itemComprar.precio * itemComprar.cantidad)
         }
         return(item)
       })
-      setCarrito(carritoBorrador)
+      setCarrito(carritoBorrador);
       setUnidad(unidad + cantidad);
-    }
+    };
   
   };
   const RemoveCart = () => {
@@ -51,11 +52,10 @@ export const CartProvider = ({ children }) => {
       if (item.id === id){
         setPrecioT(preciot - (item.subtotal))
         setUnidad(unidad - (item.cantidad))
-      }
-    })
-    const carritoBorrador = carrito.filter((itemnoborrar) => itemnoborrar.id !== id)
+      };
+    });
+    const carritoBorrador = carrito.filter((itemnoborrar) => itemnoborrar.id !== id);
     setCarrito(carritoBorrador);
-    
   };
   const FinDeCompra = async ( carrito, user, numero, email) => {
     const ordenCollection = collection(getData(), "orden");
@@ -68,13 +68,18 @@ export const CartProvider = ({ children }) => {
       dataOrden: Timestamp.fromDate(new Date()),
       item: { ...carrito }
       
-    }
-    await addDoc(ordenCollection, orden);
-    alert("Compra enviada")
+    };
+    const ordenDeCompra = await addDoc(ordenCollection, orden);
+    
+    let elCarro = carrito.map(tituloObjeto => {
+      return( " " + tituloObjeto.nombre + "  cantidad: " +tituloObjeto.cantidad )
+    })
+    console.log(elCarro);
+    swal(`Hola usuario ${user}, el id de su compra es: ${ordenDeCompra.id}` , `su compra fue de:  ${elCarro}` , "success")
     setCarrito([]);
     CerrarSesion();
     
-  }
+  };
   
   return (
     
@@ -82,6 +87,6 @@ export const CartProvider = ({ children }) => {
       {children}
     </Cartcontext.Provider>
   );
-}
+};
 
 export default Cartcontext;
