@@ -10,7 +10,6 @@ import { useContext } from 'react'
 
 
 function NavBar (){
-    const {carrito} = useContext(Cartcontext)
     return(
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
             <Container>
@@ -32,7 +31,7 @@ function NavBar (){
                 
                 
                 </Navbar.Collapse>
-                { carrito.length > 0 ? <CartWidget /> : <></> }  
+                <CartWidget />  
             </Container>
         </Navbar>
     )

@@ -6,7 +6,7 @@ export default function Item({nombre, precio, imagen, id}) {
     
     return (
         
-            <Card border="success" style={{ width: '18rem', heigth: '18rem', margin: '3px'  }}>
+            <Card border="success" style={{ width: '18rem', heigth: '18rem', margin: '62px auto 50px auto', padding:'4px'  }}>
                 <Card.Img src={imagen}/>
                 <Card.Body style={{ padding: '5px'}}>
                     <Card.Title style={{ fontSize: '35px'}}>{nombre}</Card.Title>

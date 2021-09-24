@@ -29,7 +29,7 @@ function CartWidget() {
           <span className="visually-hidden">unread messages</span>
         </span>
       </Button>
-      <Offcanvas show={show} onHide={handleClose} placement={'end'} style={{width : "450px"}}>
+      <Offcanvas show={show} onHide={handleClose} placement={'end'} style={{width : "500px"}}>
         <Offcanvas.Header closeButton>
           <Offcanvas.Title>Carrito de Compras</Offcanvas.Title>
         </Offcanvas.Header>

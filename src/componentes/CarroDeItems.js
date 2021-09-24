@@ -50,14 +50,20 @@ export default function Carrito() {
                         <>
 
                             <Form>
-                                <Form.Label>Nombre</Form.Label>
-                                <Form.Control onChange={(e)=>{setNombre(e.target.value)}}></Form.Control>
-                                <Form.Label>Numero</Form.Label>
-                                <Form.Control onChange={(e)=>{setNumero(e.target.value)}}></Form.Control>
-                                <Form.Label>Mail</Form.Label>
-                                <Form.Control onChange={(e)=>{setEmail(e.target.value)}}></Form.Control>
-                                <Button className="btn btn-primary" onClick={() => AgregarUsuario(nombre, numero, email)}> Agregar Usuario</Button>
-                            
+                                <Form.Group>
+                                    <Form.Label>Nombre</Form.Label>
+                                    <Form.Control onChange={(e) => { setNombre(e.target.value) }}></Form.Control>
+                                </Form.Group>
+                                <Form.Group>
+                                    <Form.Label>Numero</Form.Label>
+                                    <Form.Control onChange={(e) => { setNumero(e.target.value) }}></Form.Control>
+                                </Form.Group>
+                                <Form.Group>
+                                    <Form.Label>Mail</Form.Label>
+                                    <Form.Control onChange={(e) => { setEmail(e.target.value) }}></Form.Control>
+                                    <Button style={{ margin: '5px' }} className="btn btn-primary" onClick={() => AgregarUsuario(nombre, numero, email)}> Agregar Usuario</Button>
+                                </Form.Group>
+
                             </Form>
                         </>
                     }
@@ -66,7 +72,7 @@ export default function Carrito() {
                 :
                 <div >
                     <h4>Carrito Vacio</h4>
-                    <Link className="btn btn-secundary" to="/"><button>Volver al Inicio</button></Link>
+                    <Link to="/"><button className="btn btn-info">Volver al Inicio</button></Link>
                 </div>
             }
         </>

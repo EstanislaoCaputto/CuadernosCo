@@ -77,6 +77,7 @@ export const CartProvider = ({ children }) => {
     console.log(elCarro);
     swal(`Hola usuario ${user}, el id de su compra es: ${ordenDeCompra.id}` , `su compra fue de:  ${elCarro}` , "success")
     setCarrito([]);
+    setUnidad(0)
     CerrarSesion();
     
   };
