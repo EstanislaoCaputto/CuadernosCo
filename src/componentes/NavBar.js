@@ -5,8 +5,7 @@ import Nav from 'react-bootstrap/Nav'
 import NavDropdown from 'react-bootstrap/NavDropdown'
 import 'bootstrap/dist/css/bootstrap.min.css'
 import CartWidget from './CartWidget'
-import Cartcontext from '../contex/cartContex'
-import { useContext } from 'react'
+
 
 
 function NavBar (){
