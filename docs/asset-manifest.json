@@ -1,0 +1,26 @@
+{
+  "files": {
+    "main.css": "/cuadernosco/static/css/main.87933170.chunk.css",
+    "main.js": "/cuadernosco/static/js/main.c9763acb.chunk.js",
+    "main.js.map": "/cuadernosco/static/js/main.c9763acb.chunk.js.map",
+    "runtime-main.js": "/cuadernosco/static/js/runtime-main.af92a601.js",
+    "runtime-main.js.map": "/cuadernosco/static/js/runtime-main.af92a601.js.map",
+    "static/css/2.4be38407.chunk.css": "/cuadernosco/static/css/2.4be38407.chunk.css",
+    "static/js/2.1dff58d5.chunk.js": "/cuadernosco/static/js/2.1dff58d5.chunk.js",
+    "static/js/2.1dff58d5.chunk.js.map": "/cuadernosco/static/js/2.1dff58d5.chunk.js.map",
+    "static/js/3.f3bc88ef.chunk.js": "/cuadernosco/static/js/3.f3bc88ef.chunk.js",
+    "static/js/3.f3bc88ef.chunk.js.map": "/cuadernosco/static/js/3.f3bc88ef.chunk.js.map",
+    "index.html": "/cuadernosco/index.html",
+    "static/css/2.4be38407.chunk.css.map": "/cuadernosco/static/css/2.4be38407.chunk.css.map",
+    "static/css/main.87933170.chunk.css.map": "/cuadernosco/static/css/main.87933170.chunk.css.map",
+    "static/js/2.1dff58d5.chunk.js.LICENSE.txt": "/cuadernosco/static/js/2.1dff58d5.chunk.js.LICENSE.txt",
+    "static/media/App.css": "/cuadernosco/static/media/lunas_fondo_cuadernosco.748f9633.jpg"
+  },
+  "entrypoints": [
+    "static/js/runtime-main.af92a601.js",
+    "static/css/2.4be38407.chunk.css",
+    "static/js/2.1dff58d5.chunk.js",
+    "static/css/main.87933170.chunk.css",
+    "static/js/main.c9763acb.chunk.js"
+  ]
+}
