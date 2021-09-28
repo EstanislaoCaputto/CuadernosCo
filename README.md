@@ -16,5 +16,5 @@ _Correr la aplicacion localmente : [localhost:3000](http://localhost:3000/)_
 _Para buildear la app en modo de produccion_
 
 ## Navegacion de la app
-![GIF](public\CuadernosCo.gif)
+![GIF](public/CuadernosCo.gif)
 
