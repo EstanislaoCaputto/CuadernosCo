@@ -6,7 +6,7 @@ _Puedes Visitarlos [aqui](https://estanislaocaputto.github.io/cuadernosco/)_
 
 ## Script disponibles
 ## `npm i`
-_Instalacion de dependencias _ 
+_Instalacion de dependencias_ 
 
 ## `npm start`
 _Correr la aplicacion localmente : [localhost:3000](http://localhost:3000/)_
@@ -16,5 +16,5 @@ _Correr la aplicacion localmente : [localhost:3000](http://localhost:3000/)_
 _Para buildear la app en modo de produccion_
 
 ## Navegacion de la app
-![GIF](public\CuadernosCo.gif "NAVEGACION")
+![GIF](public\CuadernosCo.gif)
 
