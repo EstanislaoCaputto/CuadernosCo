@@ -30,7 +30,7 @@ function App() {
               <div className="Container">
                 <NavBar />
                 <Switch>
-                  <Route exact path="/">
+                  <Route exact path="/cuadernosco">
                     <div className="row">
                       <ItemListContainer />
                     </div>

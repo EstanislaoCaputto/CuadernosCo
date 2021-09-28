@@ -13,7 +13,7 @@ function NavBar (){
         <Navbar collapseOnSelect expand="lg" bg="dark" variant="dark" fixed="top">
             <Container>
                 
-                <Navbar.Brand href="/">Eclipsamesta</Navbar.Brand>
+                <Navbar.Brand href="/cuadernosco">Eclipsamesta</Navbar.Brand>
                 <Navbar.Toggle aria-controls="responsive-navbar-nav" />
                 <Navbar.Collapse id="responsive-navbar-nav">
                 <Nav className="me-auto">

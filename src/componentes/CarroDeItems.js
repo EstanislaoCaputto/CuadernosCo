@@ -72,7 +72,7 @@ export default function Carrito() {
                 :
                 <div >
                     <h4>Carrito Vacio</h4>
-                    <Link to="/"><button className="btn btn-info">Volver al Inicio</button></Link>
+                    <Link to="/cuadernosco"><button className="btn btn-info">Volver al Inicio</button></Link>
                 </div>
             }
         </>

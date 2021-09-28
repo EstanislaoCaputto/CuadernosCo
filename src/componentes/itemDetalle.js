@@ -42,7 +42,7 @@ function ItemDetalle({producto}) {
                         :
                         <>
                         <Link className="btn btn-success" to="/cart">Terminar Compra</Link>
-                        <Link className="btn btn-primary" to="/">Volver a Items</Link>
+                        <Link className="btn btn-primary" to="/cuadernosco">Volver a Items</Link>
                         </>
                         }
                         
