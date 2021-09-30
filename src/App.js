@@ -4,6 +4,8 @@ import Carrito from './componentes/CarroDeItems';
 import ItemDetalleContenedor from './componentes/itemDetailConteiner';
 import ItemListContainer from './componentes/ItemListContainer';
 import NavBar from './componentes/NavBar.js';
+import Carrusel from './componentes/CarruselDeItems';
+ 
 
 //Firebase
 // import { collection, getDocs } from 'firebase/firestore';
@@ -32,6 +34,7 @@ function App() {
                 <Switch>
                   <Route exact path="/cuadernosco">
                     <div className="row">
+                      <Carrusel />
                       <ItemListContainer />
                     </div>
                   </Route>
@@ -41,6 +44,7 @@ function App() {
                   <Route exact path="/cart">
                     <Carrito />
                   </Route>
+                  
 
                 </Switch>
               </div>
